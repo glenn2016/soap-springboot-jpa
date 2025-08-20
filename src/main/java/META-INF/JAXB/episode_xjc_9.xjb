@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<bindings version="3.0" xmlns="https://jakarta.ee/xml/ns/jaxb">
+  <!--
+
+Ce fichier a été généré par Eclipse Implementation of JAXB, v3.0.0 
+Voir https://eclipse-ee4j.github.io/jaxb-ri 
+Toute modification apportée à ce fichier sera perdue lors de la recompilation du schéma source. 
+Généré le : 2025.08.20 à 11:07:37 AM CEST 
+
+  -->
+  <bindings scd="x-schema::tns" xmlns:tns="http://groupeisi.com/soap">
+    <schemaBindings map="false">
+      <package name="com.groupeisi.soap_springboot_jpa.soap"/>
+    </schemaBindings>
+    <bindings scd="tns:GetAllSectorsRequest">
+      <class ref="com.groupeisi.soap_springboot_jpa.soap.GetAllSectorsRequest"/>
+    </bindings>
+    <bindings scd="tns:GetAllSectorsResponse">
+      <class ref="com.groupeisi.soap_springboot_jpa.soap.GetAllSectorsResponse"/>
+    </bindings>
+    <bindings scd="~tns:sectorType">
+      <class ref="com.groupeisi.soap_springboot_jpa.soap.SectorType"/>
+    </bindings>
+    <bindings scd="tns:GetSectorByIdRequest">
+      <class ref="com.groupeisi.soap_springboot_jpa.soap.GetSectorByIdRequest"/>
+    </bindings>
+    <bindings scd="tns:GetSectorByIdResponse">
+      <class ref="com.groupeisi.soap_springboot_jpa.soap.GetSectorByIdResponse"/>
+    </bindings>
+    <bindings scd="tns:CreateSectorRequest">
+      <class ref="com.groupeisi.soap_springboot_jpa.soap.CreateSectorRequest"/>
+    </bindings>
+    <bindings scd="tns:CreateSectorResponse">
+      <class ref="com.groupeisi.soap_springboot_jpa.soap.CreateSectorResponse"/>
+    </bindings>
+    <bindings scd="tns:DeleteSectorRequest">
+      <class ref="com.groupeisi.soap_springboot_jpa.soap.DeleteSectorRequest"/>
+    </bindings>
+    <bindings scd="tns:DeleteSectorResponse">
+      <class ref="com.groupeisi.soap_springboot_jpa.soap.DeleteSectorResponse"/>
+    </bindings>
+    <bindings scd="~tns:classeType">
+      <class ref="com.groupeisi.soap_springboot_jpa.soap.ClasseType"/>
+    </bindings>
+  </bindings>
+</bindings>
+

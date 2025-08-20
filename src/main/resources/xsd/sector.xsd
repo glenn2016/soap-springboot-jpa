@@ -1,0 +1,207 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           targetNamespace="http://groupeisi.com/soap"
+           xmlns:tns="http://groupeisi.com/soap"
+           elementFormDefault="qualified">
+
+    <!-- ===== SECTOR OPERATIONS ===== -->
+
+    <!-- Request pour récupérer tous les sectors -->
+    <xs:element name="GetAllSectorsRequest">
+        <xs:complexType/>
+    </xs:element>
+
+    <!-- Response avec liste de sectors -->
+    <xs:element name="GetAllSectorsResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="sector" type="tns:sectorType" minOccurs="0" maxOccurs="unbounded"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <!-- Request pour récupérer un sector par ID -->
+    <xs:element name="GetSectorByIdRequest">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="id" type="xs:long"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <!-- Response pour un sector spécifique -->
+    <xs:element name="GetSectorByIdResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="sector" type="tns:sectorType" minOccurs="0"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <!-- Creation d'un sector -->
+    <xs:element name="CreateSectorRequest">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="name" type="xs:string"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="CreateSectorResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="sector" type="tns:sectorType"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <!-- Supprimer les sectors -->
+    <xs:element name="DeleteSectorRequest">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="id" type="xs:long"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="DeleteSectorResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="success" type="xs:boolean"/>
+                <xs:element name="message" type="xs:string"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <!-- ===== CLASSE OPERATIONS ===== -->
+
+    <!-- Request pour récupérer toutes les classes -->
+    <xs:element name="GetAllClassesRequest">
+        <xs:complexType/>
+    </xs:element>
+
+    <!-- Response avec liste de classes -->
+    <xs:element name="GetAllClassesResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="classe" type="tns:classeType" minOccurs="0" maxOccurs="unbounded"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <!-- Request pour récupérer une classe par ID -->
+    <xs:element name="GetClasseByIdRequest">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="id" type="xs:long"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <!-- Response pour une classe spécifique -->
+    <xs:element name="GetClasseByIdResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="classe" type="tns:classeType" minOccurs="0"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <!-- Request pour récupérer les classes par secteur -->
+    <xs:element name="GetClassesBySectorIdRequest">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="sectorId" type="xs:long"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <!-- Response pour les classes d'un secteur -->
+    <xs:element name="GetClassesBySectorIdResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="classe" type="tns:classeType" minOccurs="0" maxOccurs="unbounded"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <!-- Creation d'une classe -->
+    <xs:element name="CreateClasseRequest">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="classeName" type="xs:string"/>
+                <xs:element name="description" type="xs:string"/>
+                <xs:element name="sectorId" type="xs:long"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="CreateClasseResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="classe" type="tns:classeType"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <!-- Modification d'une classe -->
+    <xs:element name="UpdateClasseRequest">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="id" type="xs:long"/>
+                <xs:element name="classeName" type="xs:string"/>
+                <xs:element name="description" type="xs:string"/>
+                <xs:element name="sectorId" type="xs:long"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="UpdateClasseResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="classe" type="tns:classeType"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <!-- Supprimer une classe -->
+    <xs:element name="DeleteClasseRequest">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="id" type="xs:long"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="DeleteClasseResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="success" type="xs:boolean"/>
+                <xs:element name="message" type="xs:string"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <!-- ===== TYPES DEFINITIONS ===== -->
+
+    <!-- Type Sector -->
+    <xs:complexType name="sectorType">
+        <xs:sequence>
+            <xs:element name="id" type="xs:long"/>
+            <xs:element name="name" type="xs:string"/>
+            <xs:element name="classes" type="tns:classeType" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <!-- Type Classe (avec référence au secteur) -->
+    <xs:complexType name="classeType">
+        <xs:sequence>
+            <xs:element name="id" type="xs:long"/>
+            <xs:element name="classeName" type="xs:string"/>
+            <xs:element name="description" type="xs:string"/>
+            <xs:element name="sectorId" type="xs:long" minOccurs="0"/>
+            <xs:element name="sectorName" type="xs:string" minOccurs="0"/>
+        </xs:sequence>
+    </xs:complexType>
+
+</xs:schema>
